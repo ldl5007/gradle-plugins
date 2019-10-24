@@ -9,10 +9,20 @@
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
+    `maven-publish`
 
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.3.41"
 }
+
+publishing {
+    repositories {
+        maven {
+            url = uri("./build/repository")
+        }
+    }
+}
+
 
 repositories {
     // Use jcenter for resolving dependencies.
